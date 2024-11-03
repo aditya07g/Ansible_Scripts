@@ -1,0 +1,22 @@
+---
+- name: Install Packages
+  hosts: localhost
+
+  tasks:
+  - name: install nginx
+    yum:
+      name: nginx
+      state: present
+  - name: starting nginx server
+    service: 
+      name: nginx
+      state: started
+      enabled: true
+  - name: Copy files
+    copy:
+      src: /path/file1.txt
+      dest: /tmp/
+      owner: user1
+      group: group1
+      mode: ugo=rw
+      backup: true

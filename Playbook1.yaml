@@ -1,0 +1,9 @@
+---
+- name: Basic ansible
+  hosts: localhost
+
+  tasks:
+  - name: Test Connectivity
+    ping: 
+  - name: Print output for debug using debug module
+    debug: msg="Alright!!"

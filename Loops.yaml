@@ -1,0 +1,19 @@
+---
+- name: Basic ansible
+  hosts: localhost
+  vars:
+    - apps: [httpd, vim, nginx]
+  tasks:
+  - name: install apps using loop way 1
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ apps }}"
+  - name: install apps using loop way 2
+    yum:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - nginx
+      - httpd
+      - telnet

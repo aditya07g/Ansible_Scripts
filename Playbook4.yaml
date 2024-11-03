@@ -1,0 +1,19 @@
+---
+- name: Basic ansible
+  hosts: localhost
+  vars:
+    - app1: nginx
+    - app2: httpd
+  tasks:
+  - name: install nginx
+    yum:
+      name: "{{ app1 }}"
+      state: present
+    tags: i-nginx
+  - name: install httpd
+    yum:
+      name: "{{ app2 }}"
+      state: present
+    tags: i-httpd
+    
+      

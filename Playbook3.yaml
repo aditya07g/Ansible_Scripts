@@ -1,0 +1,17 @@
+---
+- name: Basic ansible
+  hosts: localhost
+
+  tasks:
+  - name: Creating a file
+    file:
+      state: touch
+      path: /tmp/file2.txt
+      owner: user1
+      group: group1
+      mode: ugo=rw
+  - name: Creating a directory
+    file: 
+      path: /tmp/myfolder
+      state: directory
+      

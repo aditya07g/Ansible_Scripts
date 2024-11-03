@@ -1,0 +1,17 @@
+---
+- name: Basic ansible
+  hosts: localhost
+  vars:
+    - app1: https
+    - app2: apache2
+  tasks:
+  - name: install httpd on redhat
+    yum:
+      name: "{{ app1 }}"
+      state: present
+    when: ansible_os_family == "Redhat"
+  - name: install apache2 on ubuntu
+    yum:
+      name: "{{ app2 }}"
+      state: present
+    when: ansible_os_family == "Ubuntu" 
